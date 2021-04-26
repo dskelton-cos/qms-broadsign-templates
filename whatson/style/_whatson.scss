@@ -1,0 +1,249 @@
+/*@font-face {
+  font-family: "Helvetica Now Display W01 Black";
+  src: url("../fonts/5760883/c1fd81d8-7b18-45c7-a173-8b9610f107f4.eot?#iefix");
+  src: url("../fonts/5760883/c1fd81d8-7b18-45c7-a173-8b9610f107f4.eot?#iefix")
+      format("eot"),
+    url("../fonts/5760883/2ff0bf4d-4cc9-4847-9b1b-ac7c50e0317e.woff2")
+      format("woff2"),
+    url("../fonts/5760883/1466a15e-b140-4e5a-8627-bc6bf2b745c5.woff")
+      format("woff"),
+    url("../fonts/5760883/5c4468cd-66d7-4ebc-b8fd-061a3ca3b61a.ttf")
+      format("truetype");
+}
+
+@font-face {
+  font-family: "Helvetica Now Text W01 Regular";
+  src: url("../fonts/5760841/a62190d2-fdb7-49be-a6ef-3c7aa0bdc19c.eot?#iefix");
+  src: url("../fonts/5760841/a62190d2-fdb7-49be-a6ef-3c7aa0bdc19c.eot?#iefix")
+      format("eot"),
+    url("../fonts/5760841/46dd84ea-bb96-46da-973b-d7fcca46437e.woff2")
+      format("woff2"),
+    url("../fonts/5760841/0fb90058-c064-40ed-8109-d1fd8633caa2.woff")
+      format("woff"),
+    url("../fonts/5760841/22a7bedd-e428-4eab-938f-34d20396296a.ttf")
+      format("truetype");
+}*/
+
+body {
+  font-weight: normal;
+  font-family: "Helvetica Now Text W01 Regular", Helvetica, sans-serif;
+  color: inherit;
+  text-rendering: optimizeLegibility;
+}
+
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Helvetica Now Display W01 Black", Helvetica, sans-serif;
+  font-style: normal;
+  color: inherit;
+  text-rendering: optimizeLegibility;
+}
+
+.whatson .grid-container {
+  background: rgb(36, 22, 159);
+  background: linear-gradient(
+      180deg,
+      rgba(36, 22, 159, 1) 30%,
+      rgba(154, 111, 157, 1) 100%
+  );
+}
+
+.slide {
+  height: 100%;
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr max-content;
+  gap: 0px 0px;
+  grid-template-areas:
+      "image"
+      "content";
+  background-color: rgba(0, 0, 0, 1);
+}
+
+.image-area {
+  grid-area: image;
+
+  position: relative;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.content {
+  &-area {
+      margin: 32px;
+      grid-area: content;
+      background-color: rgba(0, 0, 0, 1);
+      color: #fff;
+      display: grid;
+      grid-template-columns: 1fr;
+      grid-template-rows: 1fr max-content;
+      gap: 0px 0px;
+      grid-template-areas:
+          "cell1"
+          "cell2";
+
+      svg {
+          top: auto;
+          left: auto;
+          bottom: 0;
+          right: 0;
+          position: absolute;
+          width: 100px;
+          height: 100px;
+      }
+  }
+
+  &-heading {
+      font-size: 4.5rem;
+      margin-bottom: 3rem;
+  }
+  &-date {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+
+      &::first-letter {
+          text-transform: capitalize;
+      }
+  }
+  &-suburb {
+      font-size: 3rem;
+  }
+}
+.cell2 {
+  display: grid;
+  grid-template-columns: 1fr 200px;
+  grid-template-rows: 1fr;
+  gap: 0px 0px;
+  grid-template-areas: "cell-content cell-qrcode";
+  grid-area: cell2;
+}
+.cell-qrcode {
+  position: relative;
+  grid-area: cell-qrcode;
+}
+.cell-content {
+  grid-area: cell-content;
+}
+.cell1 {
+  grid-area: cell1;
+}
+.img-qr-svg {
+  height: 100px;
+  width: 100px;
+}
+
+header {
+  h1 {
+      color: #4bc2e4;
+      font-size: 5rem;
+      span {
+          color: white;
+      }
+  }
+}
+
+.icon {
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  stroke-width: 0;
+  stroke: currentColor;
+  fill: currentColor;
+}
+
+.icon-cos-logo-horizontal-black-transparent {
+  width: calc(179px * 2);
+  height: calc(33px * 2);
+  color: rgba(0, 0, 0, 1);
+}
+
+.black-gradiant {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  background: rgb(0, 0, 0);
+  background: linear-gradient(
+      0deg,
+      rgba(0, 0, 0, 1) 0%,
+      rgba(0, 0, 0, 0) 100%
+  );
+}
+
+.gradient-animator {
+  background: linear-gradient(
+      180deg,
+      rgba(36, 22, 159, 1) 30%,
+      rgba(154, 111, 157, 1) 100%
+  );
+  background-size: 300% 300%;
+  -webkit-animation: AnimationName 30s ease infinite;
+  animation: AnimationName 30s ease infinite;
+}
+
+@-webkit-keyframes AnimationName {
+  0% {
+      background-position: 50% 0%;
+  }
+  50% {
+      background-position: 50% 100%;
+  }
+  100% {
+      background-position: 50% 0%;
+  }
+}
+@keyframes AnimationName {
+  0% {
+      background-position: 50% 0%;
+  }
+  50% {
+      background-position: 50% 100%;
+  }
+  100% {
+      background-position: 50% 0%;
+  }
+}
+
+.fade-in {
+  animation: fadeIn ease 1.3s;
+  -webkit-animation: fadeIn ease 1.3s;
+  -moz-animation: fadeIn ease 1.3s;
+}
+@keyframes fadeIn {
+  0% {
+      opacity: 0;
+  }
+  100% {
+      opacity: 1;
+  }
+}
+
+@-moz-keyframes fadeIn {
+  0% {
+      opacity: 0;
+  }
+  100% {
+      opacity: 1;
+  }
+}
+
+@-webkit-keyframes fadeIn {
+  0% {
+      opacity: 0;
+  }
+  100% {
+      opacity: 1;
+  }
+}

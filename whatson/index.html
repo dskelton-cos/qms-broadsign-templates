@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <title>What's on</title>
+  </head>
+  <body class="whatson">
+    <include src="parts/svg.html"></include>
+    <div class="grid-container gradient-animator">
+      <header>
+        <h1>What's On <span id="occuranceText">today</span></h1>
+      </header>
+
+      <main id="target"></main>
+
+      <footer>
+        <svg class="icon icon-cos-logo-horizontal-black-transparent">
+          <use xlink:href="#icon-cos-logo-horizontal-black-transparent"></use>
+        </svg>
+      </footer>
+
+      <script id="mustacheTemplate" type="x-tmpl-mustache">
+        {{#.}}
+         <div class="slide">
+          <div class="image-area" style="background-image: url('data:image/jpeg;base64,{{image_base64}}')">
+              <div id="debug"></div>
+            <div class="black-gradiant"></div>
+          </div>
+          <div class="content-area">
+            <div class="cell2">
+                <div class="cell-qrcode">
+                    {{#qr_code}}
+                    {{{qr_code}}}
+                    {{/qr_code}}
+                    {{^qr_code}}
+                    <img src="whatson-qr-code.svg" class="img-qr-svg" />
+                    {{/qr_code}}
+                </div>
+                <div class="cell-content">
+                    <p class="content-date">{{when}}</p>
+                    <p class="content-suburb">{{ #details.venues }}{{name}}{{ /details.venues }}</p>
+                </div>
+              </div>
+              <div class="cell1">
+                    <h1 class="content-heading">{{title}}</h1>
+                </div>
+          </div>
+         </div>
+        {{/.}}
+      </script>
+      <script src="./index.js"></script>
+    </div>
+  </body>
+</html>
